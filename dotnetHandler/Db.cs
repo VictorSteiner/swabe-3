@@ -11,28 +11,20 @@ namespace dotnetHandler
     {
         public DbSet<Reservation> Reservations { get; set; }
 
-        public string DbPath { get; }
-
-        public HotelContext()
-        {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "hotel.db");
-            Console.WriteLine(DbPath);
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={DbPath}");
+            => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ABEHotel;Integrated Security=True;");
     }
-
+    
+    [Keyless]
     public class Reservation
     {
-        public int hotelId;
-        public string checkIn;
-        public string checkOut;
-        public int roomNo;
-        public string customerName;
-        public string customerEmail;
-        public string customerAddress;
+        public int hotelId { get; set; }
+        public string checkIn { get; set; }
+        public string checkOut { get; set; }
+        public int roomNo { get; set; }
+        public string customerName { get; set; }
+        public string customerEmail { get; set; }
+        public string customerAddress { get; set; }
     }
 }

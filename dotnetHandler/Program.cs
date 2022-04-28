@@ -35,17 +35,12 @@ namespace dotnetHandler
 
           consumer.Received += (model, ea) =>
           {
-            Console.WriteLine("received");
-
             var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
             var reservation = JsonSerializer.Deserialize<Reservation>(message);
-            Console.WriteLine($"xd");
 
             db.Add(reservation);
             db.SaveChanges();
-
-            Console.WriteLine($"haha");
 
             channelConfirmations.BasicPublish(exchange: "",
                                       routingKey: "confirmations",
