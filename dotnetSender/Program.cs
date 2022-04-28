@@ -81,12 +81,12 @@ namespace dotnetSender
 
   public class Reservation
   {
-    public int hotelId;
-    public string checkIn;
-    public string checkOut;
-    public int roomNo;
-    public string customerName;
-    public string customerEmail;
-    public string customerAddress;
+    public int hotelId {get; set;}
+    public string checkIn {get; set;}
+    public string checkOut {get; set;}
+    public int roomNo {get; set;}
+    public string customerName {get; set;}
+    public string customerEmail {get; set;}
+    public string customerAddress {get; set;}
   }
 }
