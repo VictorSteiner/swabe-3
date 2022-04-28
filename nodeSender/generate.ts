@@ -23,7 +23,7 @@ export const generateReservation = (customer?: Customer): Reservation => {
   ).toISOString();
 
   const reservation: Reservation = {
-    hotelId: Math.random(),
+    hotelId: 1,
     checkIn,
     checkOut,
     roomNo: randomBetween(100, 999),
