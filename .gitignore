@@ -1,3 +1,5 @@
 */node_modules
 */bin
 */obj
+/.vs
+/dotnetReciever/.vs/dotnetReciever/v16/.suo
