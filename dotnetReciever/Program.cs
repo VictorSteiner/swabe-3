@@ -10,12 +10,12 @@ namespace dotnetReciever
     {
         static void Main(string[] args)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() { HostName = "amqps://xdcsxmjy:***@hawk.rmq.cloudamqp.com/xdcsxmjy" };
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: "hello",
+                    channel.QueueDeclare(queue: "confirmations",
                         durable: false,
                         exclusive: false,
                         autoDelete: false,
