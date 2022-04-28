@@ -39,8 +39,8 @@ namespace dotnetHandler
             var message = Encoding.UTF8.GetString(body);
             var reservation = JsonSerializer.Deserialize<Reservation>(message);
 
-            db.Add(reservation);
-            db.SaveChanges();
+            db.AddAsync(reservation);
+            db.SaveChangesAsync();
 
             channelConfirmations.BasicPublish(exchange: "",
                                       routingKey: "confirmations",
@@ -53,7 +53,6 @@ namespace dotnetHandler
           channelReservations.BasicConsume(queue: "reservations",
               autoAck: true,
               consumer: consumer);
-
 
           Console.WriteLine(" Press [enter] to exit.");
           Console.ReadLine();

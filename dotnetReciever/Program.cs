@@ -29,7 +29,7 @@ namespace dotnetReciever
             var reservation = JsonSerializer.Deserialize<Reservation>(message);
             Console.WriteLine($"Dear {reservation.customerName} your reservation for {reservation.roomNo} has been confirmed");
             Console.WriteLine($"You check in at {reservation.checkIn} and check out at {reservation.checkOut}, hope you enjoy your stay at {reservation.hotelId}");
-            Console.WriteLine($"You can see more details about your reservation, in your email spamfolder {reservation.customerEmail}");
+            Console.WriteLine($"You can see more details about your reservation, in your email spamfolder, {reservation.customerEmail}");
           };
           channel.BasicConsume(queue: "confirmations",
               autoAck: true,
@@ -43,12 +43,12 @@ namespace dotnetReciever
   }
   public class Reservation
   {
-    public int hotelId;
-    public string checkIn;
-    public string checkOut;
-    public int roomNo;
-    public string customerName;
-    public string customerEmail;
-    public string customerAddress;
+    public int hotelId { get; set; }
+    public string checkIn { get; set; }
+    public string checkOut { get; set; }
+    public int roomNo { get; set; }
+    public string customerName { get; set; }
+    public string customerEmail { get; set; }
+    public string customerAddress { get; set; }
   }
 }
